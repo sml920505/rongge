@@ -13,11 +13,22 @@
 <script src="anime.js"></script>
 
     <style>
+        *{
+margin: 0px
+        }
+        .diox{
+            background-color: antiquewhite;
+            padding: 15px;
+            border-radius: 15px;
+            width: 329px !important;
+            height: auto !important;
+
+        }
         .dio {
             width: 180px;
             height: 80px;
             background-color: aqua;
-            margin: 20px;
+            margin-top: 20px;
             opacity: 0;
         }
 
@@ -25,11 +36,11 @@
             width: 180px;
             height: 80px;
             background-color: aqua;
-            margin: 20px;
+            /* margin: 2vh; */
             opacity: 0;
             position: absolute;
-            right: 10px;
-            margin-right: 20px;
+            right: 0vw;
+            /* margin-right: 20px; */
             } 
             
        .mydio2 {
@@ -60,13 +71,15 @@
             background-color: blue;
             /* position: fixed; */
             bottom: 0px;            
+            margin-top: 600px;
+
         } 
 
         .anwspe1-1{
             width: 180px;
             height: 80px;
-            background-color: rgb(255, 166, 0);
-            margin: 20px;
+            background-color: aqua;
+            /* margin: 20px; */
             opacity: 1;
             z-index: 10;
 
@@ -82,6 +95,8 @@
         }
         .anwhid{
             display:none     }
+            .anwhid2{
+            display:none     }   
 
         .black {
             width: 180px;
@@ -102,9 +117,11 @@
 
 <body>
 <div class="main">
-    <div class="dio dio1"></div>
-    <div class="dio dio1"></div>
-    <div class="dio dio1"></div>
+    <div class="dio dio1 diox">这也是网易云音乐继《你的使用说明书》</div>
+    <div class="dio dio1 diox">《网易云音乐年度听歌报告》之后又一个刷屏的H5作品</div>
+    <div class="dio dio1 diox">相比之下，“荣格心理原型测试”在内容的丰富程度和体验感上有了更明显的提升。
+
+        </div>
     <div class="dio dio1"></div>
     <div class="dio dio1"></div>
     <div class="dio dio1"></div>
@@ -115,12 +132,12 @@
 
         <div class="mydio"></div>
         <div class="anw anwhid">
-            <div class="anwspe1-1"></div>
-            <div class="anwspe1-2"></div>
+            <div class="anwspe1-1 diox">你的使用说明书</div>
+            <div class="anwspe1-2 diox">网易云音乐年度听歌报告</div>
 
         </div>
         <div class=" black"></div>
-<div class="section2 anwhid">
+<div class="section2 anwhid2">
         <div class="dio dio2"></div>
         <div class="dio dio2"></div>
         <div class="dio dio2"></div>
@@ -226,25 +243,45 @@
 
 
 // -----------------------------点击按钮-------------------------------------------------
+var mw = document.body.offsetWidth
+var mh = document.body.offsetHeight
 
+    $(".anwspe1-1").click(function(){      
+        // $('.mydio').addClass("mydioanime")
 
-    $(".anw").click(function(){              
                console.log('hello')
+
+            //    把选项移动上去
                anime({
-                targets: '.anw',
-                opacity: .9,
+                targets: '.anwspe1-1',
+                
+                translateY:-300, 
+                translateX:mw-180, 
+                duration: 1000
+
             });
-               anime({
+
+
+
+    setTimeout(() => {
+
+        // 展示真实的选项
+        anime({
                 targets: '.mydio',
+
                 opacity:1,
+                duration: 500
+
                 // translateX: 250,
             });
-            $("body").scrollTo({top:'+=100px', left:'+=0'}, 300);
-            // 隐藏最底下fix
+
+
+        $("body").scrollTo({top:'+=100px', left:'+=0'}, 300);
+            // 隐藏最底下fix 导致闪烁
             $('.anw').addClass("anwhid")
             //显示第二段html代码
 
-            $('.section2').removeClass("anwhid")        
+            $('.section2').removeClass("anwhid2")        
 
 
         //   迅速向下滚屏
@@ -252,11 +289,16 @@
 
             // 继续机器人说话
             dio2()
+    }, 2000);
+      
 
        });
 
+
  
 // ------------------------------------------------------------------------------
+
+// ---------------------------按钮2----------------------------------------------
 
 
     setTimeout(() => {
