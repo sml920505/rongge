@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/jquery-scrollTo/2.1.2/jquery.scrollTo.js"></script>
+<script src="https://unpkg.com/flipping@0.7.0/dist/flipping.web.js"></script>
+
+<script src="anime.js"></script>
+
+    <style>
+        .dio {
+            width: 180px;
+            height: 80px;
+            background-color: aqua;
+            margin: 20px;
+            opacity: 0;
+        }
+
+       .mydio {
+            width: 180px;
+            height: 80px;
+            background-color: aqua;
+            margin: 20px;
+            opacity: 0;
+            position: absolute;
+            right: 10px;
+            margin-right: 20px;
+            } 
+            
+       .mydio2 {
+            width: 180px;
+            height: 80px;
+            background-color: aqua;
+            margin: 20px;
+            opacity: 0;
+            position: absolute;
+            right: 10px;
+            margin-right: 20px;
+            } 
+
+
+         .anw {
+            opacity: 0.9;
+            width: 100vw;
+            height: 150px;
+            background-color: blueviolet;
+            margin-top: 300px;
+            /* position: fixed; */
+            bottom: 0px;            
+        } 
+        .anw2 {
+            opacity: 0.9;
+            width: 100vw;
+            height: 150px;
+            background-color: blue;
+            /* position: fixed; */
+            bottom: 0px;            
+        } 
+
+        .anwspe1-1{
+            width: 180px;
+            height: 80px;
+            background-color: rgb(255, 166, 0);
+            margin: 20px;
+            opacity: 1;
+            z-index: 10;
+
+        }
+        .anwspe1-2{
+            width: 180px;
+            height: 80px;
+            background-color: rgb(217, 240, 16);
+            margin: 20px;
+            opacity: 1;
+            z-index: 10;
+
+        }
+        .anwhid{
+            display:none     }
+
+        .black {
+            width: 180px;
+            height: 80px;
+            /* background-color: aqua; */
+            margin: 20px;
+            opacity: 0;
+        }
+
+        .main {
+
+            height: 1500px;
+            width: 100vw;
+
+        }
+    </style>
+</head>
+
+<body>
+<div class="main">
+    <div class="dio dio1"></div>
+    <div class="dio dio1"></div>
+    <div class="dio dio1"></div>
+    <div class="dio dio1"></div>
+    <div class="dio dio1"></div>
+    <div class="dio dio1"></div>
+    <div class="dio dio1"></div>
+    <div class="dio dio1"></div>
+    <div class="dio dio1"></div>
+    <div class="dio dio1"></div>
+
+        <div class="mydio"></div>
+        <div class="anw anwhid">
+            <div class="anwspe1-1"></div>
+            <div class="anwspe1-2"></div>
+
+        </div>
+        <div class=" black"></div>
+<div class="section2 anwhid">
+        <div class="dio dio2"></div>
+        <div class="dio dio2"></div>
+        <div class="dio dio2"></div>
+        <div class="dio dio2"></div>
+        <div class="dio dio2"></div>
+        <div class="dio dio2"></div>
+        <div class="dio dio2"></div>
+        <div class="dio dio2"></div>
+        <div class="dio dio2"></div>
+        <div class="dio dio2"></div>
+        
+        <div class="mydio2"></div>
+        
+        <div class="anw2 anwhid"></div>
+        <div class=" black"></div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+<script>
+    // $('.dio:last').after("<div class='dio'  id='1'>smzdm</div>");
+    // $('.dio:last').after("<div class='dio'  id='2'>smzdm2</div>");
+    // $('.dio:last').after("<div class='dio'  id='3'>smzdm3</div>");
+    // $('.dio:last').after("<div class='dio'  id='4'>smzdm4</div>");
+ 
+
+
+// --------------------------机器说话----------------------------
+
+    anime({
+        targets: '.dio1',
+        opacity: .9,
+        delay: anime.stagger(300), // 每个元素的延迟增加100毫秒。
+        changeComplete: function () {
+            console.log('every time')
+            
+        },
+        complete: function () {
+            console.log('hello com')
+            // 让最下面的选项显示出来，去掉display：none
+            $('.anw').removeClass("anwhid")        
+
+            // anime({
+            //     targets: '.anw',
+            //     opacity: .9,
+            // })
+
+        }
+
+    });
+
+    // ----机器人第二次说话
+    function dio2() {
+        anime({
+        targets: '.dio2',
+        opacity: .9,
+        delay: anime.stagger(300), // 每个元素的延迟增加100毫秒。
+        complete: function () {
+
+            console.log('hello com2')
+            $('.anw2').removeClass("anwhid")        
+
+            // anime({
+            //     targets: '.anw2',
+            //     opacity: .9,
+            // })
+        }
+    });
+
+    setTimeout(() => {
+        var start = 
+        setInterval(() => {
+            $("body").scrollTo({top:'+=100px', left:'+=0'}, 300);
+
+            console.log('hello')
+
+            // 200挪动一次
+        }, 300);
+
+
+        setTimeout(() => {
+            clearInterval(start)
+            // 1000后停止
+        }, 1800);
+    }, 900);
+    }
+
+
+
+// -----------------------------点击按钮-------------------------------------------------
+
+
+    $(".anw").click(function(){              
+               console.log('hello')
+               anime({
+                targets: '.anw',
+                opacity: .9,
+            });
+               anime({
+                targets: '.mydio',
+                opacity:1,
+                // translateX: 250,
+            });
+            $("body").scrollTo({top:'+=100px', left:'+=0'}, 300);
+            // 隐藏最底下fix
+            $('.anw').addClass("anwhid")
+            //显示第二段html代码
+
+            $('.section2').removeClass("anwhid")        
+
+
+        //   迅速向下滚屏
+            $("body").scrollTo({top:'+=500px', left:'+=0'}, 600);
+
+            // 继续机器人说话
+            dio2()
+
+       });
+
+ 
+// ------------------------------------------------------------------------------
+
+
+    setTimeout(() => {
+        var start = 
+        setInterval(() => {
+
+            $("body").scrollTo({top:'+=100px', left:'+=0'}, 300)
+
+            console.log('hello')
+
+            // 200挪动一次
+        }, 300);
+
+
+        setTimeout(() => {
+            clearInterval(start)
+            // 1000后停止
+        }, 2400);
+    }, 900);
+
+ // ------------------------------------------------------------------------------
+   
+</script>
+
+</html>
