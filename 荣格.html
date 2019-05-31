@@ -45,7 +45,7 @@
 
         .dio {
             width: 180px;
-            height: 70px;
+            /* height: 70px; */
             background-color: aqua;
             margin-top: 20px;
             opacity: 0;
@@ -55,7 +55,7 @@
 
         .mydio {
             width: 180px;
-            height: 80px;
+            /* height: 80px; */
             background-color: aqua;
             /* margin: 2vh; */
             opacity: 0;
@@ -178,7 +178,7 @@
         <div class="main">
             <vuedio v-for="image in images"  v-bind:dizhi1='image.src'></vuedio>
 
-            <div class="dio dio1 diox">这也是网易云音乐继《你的使用说明书》</div>
+            <!-- <div class="dio dio1 diox">这也是网易云音乐继《你的使用说明书》</div>
             <div class="dio dio1 diox">《网易云音乐年度听歌报告》之后又一个刷屏的H5作品</div>
             <div class="dio dio1 diox">相比之下，“荣格心理原型测试”在内容的丰富程度和体验感上有了更明显的提升。
 
@@ -189,7 +189,7 @@
             <div class="dio dio1"><img src="images/1-05.gif" alt="" srcset=""></div>
             <div class="dio dio1"><img src="images/1-06.gif" alt="" srcset=""></div>
             <div class="dio dio1"><img src="images/1-07.gif" alt="" srcset=""></div>
-            <div class="dio dio1"><img src="images/1-07.gif" alt="" srcset=""></div>
+            <div class="dio dio1"><img src="images/1-07.gif" alt="" srcset=""></div> -->
 
             <div class="mydio"></div>
             <div class="anw anwhid">
@@ -199,6 +199,9 @@
             </div>
             <div class=" black"></div>
             <div class="section2 anwhid2">
+                    <vuedio2 v-for="image in images2"  v-bind:dizhi1='image.src2'></vuedio>
+
+                <!-- <div class="dio dio2"></div>
                 <div class="dio dio2"></div>
                 <div class="dio dio2"></div>
                 <div class="dio dio2"></div>
@@ -207,8 +210,7 @@
                 <div class="dio dio2"></div>
                 <div class="dio dio2"></div>
                 <div class="dio dio2"></div>
-                <div class="dio dio2"></div>
-                <div class="dio dio2"></div>
+                <div class="dio dio2"></div> -->
 
                 <div class="mydio2"></div>
 
@@ -219,7 +221,8 @@
             </div>
 
             <!-- disanci  -->
-            <div class="section2 anwhid3">
+            <div class="section3 anwhid3">
+                <!-- <div class="dio dio2"></div>
                 <div class="dio dio2"></div>
                 <div class="dio dio2"></div>
                 <div class="dio dio2"></div>
@@ -228,8 +231,7 @@
                 <div class="dio dio2"></div>
                 <div class="dio dio2"></div>
                 <div class="dio dio2"></div>
-                <div class="dio dio2"></div>
-                <div class="dio dio2"></div>
+                <div class="dio dio2"></div> -->
 
                 <div class="mydio2"></div>
 
@@ -299,6 +301,21 @@
 
 
     })
+    Vue.component('vuedio2',{
+        data() {
+            return {
+                images:'images/1-03.gif'
+
+            }
+        },
+        props:['dizhi1'],
+        template:
+        `
+        <div class="dio2 dio"><img :src='dizhi1' alt="" srcset=""></div>
+        `
+
+
+    })
 
     new Vue({
         el: '.main',
@@ -312,14 +329,22 @@
             {src:'images/images/未标题-2_07.jpg'},
             {src:'images/images/未标题-2_11.jpg'},
             {src:'images/images/未标题-2_13.jpg'},
+      ],
+      images2:[
+        {src2:'images/images/未标题-2_03.jpg'},
+                {src2:'images/images/未标题-2_05.jpg'},
+                {src2:'images/images/未标题-2_07.jpg'},
+                {src2:'images/images/未标题-2_11.jpg'},
+                {src2:'images/images/未标题-2_13.jpg'},
+        {src2:'images/1-03.gif'},
+                {src2:'images/1-04.gif'},
+                {src2:'images/1-05.gif'},
+        
 
-   
 
 
+      ]
 
-
-
-            ]
 
         }
     })
@@ -347,7 +372,7 @@
                 console.log('hello')
 
                 // 200挪动一次
-            }, 20000);
+            }, 200);
 
 
         setTimeout(() => {
@@ -361,13 +386,13 @@
     // -----------------------------------------------------------------------
 
     anime({
-        targets: ['.dio1', '.diox'],
+        targets: ['.dio1'],
         scale: [0, 1],
         // width:["0%","70%"],
         // height:["0%","3%"],
         opacity: .9,
         duration: 500,
-        delay: anime.stagger(2000), // 每个元素的延迟增加100毫秒。
+        delay: anime.stagger(300), // 每个元素的延迟增加100毫秒。
         // mass stiffness damping velocity 质量刚度阻尼速度
         // easing: 'spring(3, 100, 50, 50)',
         easing: "easeOutElastic(1,1.0)",
