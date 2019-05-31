@@ -6,33 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
-<script src="https://cdn.bootcss.com/jquery-scrollTo/2.1.2/jquery.scrollTo.js"></script>
-<script src="https://unpkg.com/flipping@0.7.0/dist/flipping.web.js"></script>
-
-<script src="anime.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-scrollTo/2.1.2/jquery.scrollTo.js"></script>
+    <script src="https://unpkg.com/flipping@0.7.0/dist/flipping.web.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.25/howler.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <script src="anime.js"></script>
 
     <style>
-        *{
-margin: 0px
+        * {
+            margin: 0px;
+            background-color: rgb(246, 246, 246)
         }
-        .diox{
+
+        /* body{
+            position: relative;
+            z-index: 0;
+        }
+         .all{
+            opacity: 0.8;
+            width: 100vw;
+            height: 100vh;
+            bottom: 0px;
+            position: fixed;
+            z-index: 10;
+            background-color: brown;
+            background-color: rebeccapurple} */
+
+
+
+        /* .diox{
             background-color: antiquewhite;
             padding: 15px;
             border-radius: 15px;
-            width: 329px !important;
-            height: auto !important;
+            width: auto !important;
+            height: auto !important;} */
 
-        }
+
         .dio {
             width: 180px;
-            height: 80px;
+            height: 70px;
             background-color: aqua;
             margin-top: 20px;
             opacity: 0;
+            transform-origin: bottom left;
+
         }
 
-       .mydio {
+        .mydio {
             width: 180px;
             height: 80px;
             background-color: aqua;
@@ -41,9 +62,9 @@ margin: 0px
             position: absolute;
             right: 0vw;
             /* margin-right: 20px; */
-            } 
-            
-       .mydio2 {
+        }
+
+        .mydio2 {
             width: 180px;
             height: 80px;
             background-color: aqua;
@@ -52,51 +73,75 @@ margin: 0px
             position: absolute;
             right: 10px;
             margin-right: 20px;
-            } 
+        }
 
 
-         .anw {
+
+        .anw {
+            display: flex;
+            flex-direction: row;
+
             opacity: 0.9;
             width: 100vw;
             height: 150px;
             background-color: blueviolet;
             margin-top: 300px;
             /* position: fixed; */
-            bottom: 0px;            
-        } 
-        .anw2 {
-            opacity: 0.9;
-            width: 100vw;
-            height: 150px;
-            background-color: blue;
-            /* position: fixed; */
-            bottom: 0px;            
-            margin-top: 600px;
+            bottom: 0px;
 
-        } 
+        }
 
-        .anwspe1-1{
-            width: 180px;
+
+        /* 第一个问题的两个选项 */
+        .anwspe1-1 {
+            /* position:absolute; */
+            width: 80px;
             height: 80px;
             background-color: aqua;
             /* margin: 20px; */
             opacity: 1;
             z-index: 10;
 
+            /* top:50%;
+            left:50%;
+            width:100%;
+            transform:translate(-50%,-50%); */
+
         }
-        .anwspe1-2{
-            width: 180px;
+
+        .anwspe1-2 {
+            width: 80px;
             height: 80px;
             background-color: rgb(217, 240, 16);
-            margin: 20px;
+            /* margin: 20px; */
             opacity: 1;
             z-index: 10;
 
         }
-        .anwhid{
-            display:none     }
-            .anwhid2{
-            display:none     }   
+
+
+        .anw2 {
+            opacity: 0.9;
+            width: 100vw;
+            height: 150px;
+            background-color: blue;
+            /* position: fixed; */
+            bottom: 0px;
+            margin-top: 600px;
+
+        }
+
+        .anwhid {
+            display: none
+        }
+
+        .anwhid2 {
+            display: none
+        }
+
+        .anwhid3 {
+            display: none
+        }
 
         .black {
             width: 180px;
@@ -107,61 +152,100 @@ margin: 0px
         }
 
         .main {
+            position: relative;
 
             height: 1500px;
             width: 100vw;
 
+
+        }
+
+        img {
+            z-index: 10;
+            pointer-events: none;
         }
     </style>
 </head>
 
 <body>
-<div class="main">
-    <div class="dio dio1 diox">这也是网易云音乐继《你的使用说明书》</div>
-    <div class="dio dio1 diox">《网易云音乐年度听歌报告》之后又一个刷屏的H5作品</div>
-    <div class="dio dio1 diox">相比之下，“荣格心理原型测试”在内容的丰富程度和体验感上有了更明显的提升。
+    <div id="app">
+        <vuecom dizhi=' https://cn.vuejs.org/images/logo.png'></vuecom>
+
+        <!-- ./images/images/-2_03.jpg -->
+
+    </div>
+    <div class="all">
+        <div class="main">
+            <vuedio v-for="image in images"  v-bind:dizhi1='image.src'></vuedio>
+
+            <div class="dio dio1 diox">这也是网易云音乐继《你的使用说明书》</div>
+            <div class="dio dio1 diox">《网易云音乐年度听歌报告》之后又一个刷屏的H5作品</div>
+            <div class="dio dio1 diox">相比之下，“荣格心理原型测试”在内容的丰富程度和体验感上有了更明显的提升。
+
+            </div>
+            <div class="dio dio1"><img src="1.gif" alt="" srcset=""></div>
+            <div class="dio dio1"><img src="images/1-03.gif" alt="" srcset=""></div>
+            <div class="dio dio1"><img src="images/1-04.gif" alt="" srcset=""></div>
+            <div class="dio dio1"><img src="images/1-05.gif" alt="" srcset=""></div>
+            <div class="dio dio1"><img src="images/1-06.gif" alt="" srcset=""></div>
+            <div class="dio dio1"><img src="images/1-07.gif" alt="" srcset=""></div>
+            <div class="dio dio1"><img src="images/1-07.gif" alt="" srcset=""></div>
+
+            <div class="mydio"></div>
+            <div class="anw anwhid">
+                <div class="anwspe1-1 diox">你的使用说明书</div>
+                <div class="anwspe1-2 diox">网易云音乐年度听歌报告</div>
+
+            </div>
+            <div class=" black"></div>
+            <div class="section2 anwhid2">
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+
+                <div class="mydio2"></div>
+
+                <div class="anw2 anwhid"></div>
+                <div class=" black"></div>
+
+
+            </div>
+
+            <!-- disanci  -->
+            <div class="section2 anwhid3">
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+                <div class="dio dio2"></div>
+
+                <div class="mydio2"></div>
+
+                <div class="anw2 anwhid"></div>
+                <div class=" black"></div>
+
+
+            </div>
+
+
+
+
 
         </div>
-    <div class="dio dio1"></div>
-    <div class="dio dio1"></div>
-    <div class="dio dio1"></div>
-    <div class="dio dio1"></div>
-    <div class="dio dio1"></div>
-    <div class="dio dio1"></div>
-    <div class="dio dio1"></div>
 
-        <div class="mydio"></div>
-        <div class="anw anwhid">
-            <div class="anwspe1-1 diox">你的使用说明书</div>
-            <div class="anwspe1-2 diox">网易云音乐年度听歌报告</div>
-
-        </div>
-        <div class=" black"></div>
-<div class="section2 anwhid2">
-        <div class="dio dio2"></div>
-        <div class="dio dio2"></div>
-        <div class="dio dio2"></div>
-        <div class="dio dio2"></div>
-        <div class="dio dio2"></div>
-        <div class="dio dio2"></div>
-        <div class="dio dio2"></div>
-        <div class="dio dio2"></div>
-        <div class="dio dio2"></div>
-        <div class="dio dio2"></div>
-        
-        <div class="mydio2"></div>
-        
-        <div class="anw2 anwhid"></div>
-        <div class=" black"></div>
-
-
-</div>
-
-
-
-
-
-</div>
+    </div>
 
 
 
@@ -173,27 +257,129 @@ margin: 0px
 </body>
 
 <script>
-    // $('.dio:last').after("<div class='dio'  id='1'>smzdm</div>");
-    // $('.dio:last').after("<div class='dio'  id='2'>smzdm2</div>");
-    // $('.dio:last').after("<div class='dio'  id='3'>smzdm3</div>");
-    // $('.dio:last').after("<div class='dio'  id='4'>smzdm4</div>");
- 
+    // ------------------------------------------------------------------------------
+    //   VUEJS
+    // -----------------------------------------------------------------------
+
+    Vue.component('vuecom', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        props: ['dizhi'],
+
+        template:
+            // 所有的属性绑定都要懂v-bind:src 不然浏览器会直接解析src，不用组件也不会用括号{{}}
+            //prop 和data一样，
+            //https://stackoverflow.com/questions/50732500/img-source-passed-on-prop-to-child-component-vue-js
+
+            `
+            <div>
+            <button v-on:click="count++">You clicked me {{ count }} times.</button>
+            <img :src='dizhi' alt="" srcset="">
+                </div>
+            `
+
+    })
+    // -------------------------------------------------------
+
+    Vue.component('vuedio',{
+        data() {
+            return {
+                images:'images/1-03.gif'
+
+            }
+        },
+        props:['dizhi1'],
+        template:
+        `
+        <div class="dio1 dio"><img :src='dizhi1' alt="" srcset=""></div>
+        `
 
 
-// --------------------------机器说话----------------------------
+    })
+
+    new Vue({
+        el: '.main',
+        data:{
+            images:[
+            {src:'images/1-03.gif'},
+            {src:'images/1-04.gif'},
+            {src:'images/1-05.gif'},
+            {src:'images/images/未标题-2_03.jpg'},
+            {src:'images/images/未标题-2_05.jpg'},
+            {src:'images/images/未标题-2_07.jpg'},
+            {src:'images/images/未标题-2_11.jpg'},
+            {src:'images/images/未标题-2_13.jpg'},
+
+   
+
+
+
+
+
+            ]
+
+        }
+    })
+
+
+
+
+
+
+
+    // ------------------------------------------------------------------------------
+    //   第一部分 窗口移动
+    // -----------------------------------------------------------------------
+
+
+    setTimeout(() => {
+        var start =
+            setInterval(() => {
+
+                $("body").scrollTo({
+                    top: '+=100px',
+                    left: '+=0'
+                }, 300)
+
+                console.log('hello')
+
+                // 200挪动一次
+            }, 20000);
+
+
+        setTimeout(() => {
+            clearInterval(start)
+            // 1000后停止
+        }, 1000);
+    }, 1000);
+
+    // ------------------------------------------------------------------------------
+    //  ---机器人第一次说话
+    // -----------------------------------------------------------------------
 
     anime({
-        targets: '.dio1',
+        targets: ['.dio1', '.diox'],
+        scale: [0, 1],
+        // width:["0%","70%"],
+        // height:["0%","3%"],
         opacity: .9,
-        delay: anime.stagger(300), // 每个元素的延迟增加100毫秒。
+        duration: 500,
+        delay: anime.stagger(2000), // 每个元素的延迟增加100毫秒。
+        // mass stiffness damping velocity 质量刚度阻尼速度
+        // easing: 'spring(3, 100, 50, 50)',
+        easing: "easeOutElastic(1,1.0)",
         changeComplete: function () {
             console.log('every time')
-            
+
+
         },
         complete: function () {
             console.log('hello com')
             // 让最下面的选项显示出来，去掉display：none
-            $('.anw').removeClass("anwhid")        
+            $('.anw').removeClass("anwhid")
 
             // anime({
             //     targets: '.anw',
@@ -203,124 +389,128 @@ margin: 0px
         }
 
     });
+    // ------------------------------------------------------------------------------
+    //  ---机器人第二次说话
+    // -----------------------------------------------------------------------
 
-    // ----机器人第二次说话
     function dio2() {
         anime({
-        targets: '.dio2',
-        opacity: .9,
-        delay: anime.stagger(300), // 每个元素的延迟增加100毫秒。
-        complete: function () {
+            targets: '.dio2',
+            opacity: .9,
+            delay: anime.stagger(300), // 每个元素的延迟增加100毫秒。
+            complete: function () {
 
-            console.log('hello com2')
-            $('.anw2').removeClass("anwhid")        
+                console.log('hello com2')
+                $('.anw2').removeClass("anwhid")
 
-            // anime({
-            //     targets: '.anw2',
-            //     opacity: .9,
-            // })
-        }
-    });
-
-    setTimeout(() => {
-        var start = 
-        setInterval(() => {
-            $("body").scrollTo({top:'+=100px', left:'+=0'}, 300);
-
-            console.log('hello')
-
-            // 200挪动一次
-        }, 300);
-
+                // anime({
+                //     targets: '.anw2',
+                //     opacity: .9,
+                // })
+            }
+        });
 
         setTimeout(() => {
-            clearInterval(start)
-            // 1000后停止
-        }, 1800);
-    }, 900);
+            var start =
+                setInterval(() => {
+                    $("body").scrollTo({
+                        top: '+=100px',
+                        left: '+=0'
+                    }, 300);
+
+                    console.log('hello')
+
+                    // 200挪动一次
+                }, 300);
+
+
+            setTimeout(() => {
+                clearInterval(start)
+                // 1000后停止
+            }, 1800);
+        }, 900);
     }
 
 
 
-// -----------------------------点击按钮-------------------------------------------------
-var mw = document.body.offsetWidth
-var mh = document.body.offsetHeight
+    // -----------------------------点击按钮-------------------------------------------------
+    var mw = document.body.offsetWidth
+    var mh = document.body.offsetHeight
 
-    $(".anwspe1-1").click(function(){      
+    $(".anwspe1-1").click(function () {
         // $('.mydio').addClass("mydioanime")
 
-               console.log('hello')
+        sound.play('laser')
+        console.log('hello')
 
-            //    把选项移动上去
-               anime({
-                targets: '.anwspe1-1',
-                
-                translateY:-300, 
-                translateX:mw-180, 
-                duration: 1000
-
-            });
-
-
-
-    setTimeout(() => {
-
-        // 展示真实的选项
+        //    把选项移动上去
         anime({
+            targets: '.anwspe1-1',
+
+            translateY: -300,
+            translateX: mw - 180,
+            duration: 1000
+
+        });
+
+        // 第二部分的元素展示
+
+        setTimeout(() => {
+
+            // 展示真实的选项
+            anime({
                 targets: '.mydio',
 
-                opacity:1,
+                opacity: 1,
                 duration: 500
 
                 // translateX: 250,
             });
 
 
-        $("body").scrollTo({top:'+=100px', left:'+=0'}, 300);
+            $("body").scrollTo({
+                top: '+=100px',
+                left: '+=0'
+            }, 300);
             // 隐藏最底下fix 导致闪烁
             $('.anw').addClass("anwhid")
             //显示第二段html代码
 
-            $('.section2').removeClass("anwhid2")        
+            $('.section2').removeClass("anwhid2")
 
 
-        //   迅速向下滚屏
-            $("body").scrollTo({top:'+=500px', left:'+=0'}, 600);
+            //   迅速向下滚屏
+            $("body").scrollTo({
+                top: '+=500px',
+                left: '+=0'
+            }, 600);
 
             // 继续机器人说话
             dio2()
-    }, 2000);
-      
-
-       });
+        }, 2000);
 
 
- 
-// ------------------------------------------------------------------------------
-
-// ---------------------------按钮2----------------------------------------------
+    });
 
 
-    setTimeout(() => {
-        var start = 
-        setInterval(() => {
-
-            $("body").scrollTo({top:'+=100px', left:'+=0'}, 300)
-
-            console.log('hello')
-
-            // 200挪动一次
-        }, 300);
 
 
-        setTimeout(() => {
-            clearInterval(start)
-            // 1000后停止
-        }, 2400);
-    }, 900);
 
- // ------------------------------------------------------------------------------
-   
+    // ------------------------------------------------------------------------------
+    // Load and decode sounds
+    var sound = new Howl({
+        urls: ['https://goldfirestudios.com/proj/howlerjs/sounds.mp3',
+            'https://goldfirestudios.com/proj/howlerjs/sounds.ogg'
+        ],
+        sprite: {
+            blast: [0, 2000],
+            laser: [3000, 700],
+            winner: [5000, 9000]
+        },
+        onload: function () {
+            console.log("Sound loaded");
+        }
+    });
 </script>
 
 </html>
