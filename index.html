@@ -44,10 +44,10 @@
 
 
         .dio {
-            width: 180px;
+            /* width: 180px; */
             /* height: 70px; */
-            background-color: aqua;
-            margin-top: 20px;
+            /* background-color: aqua; */
+            margin-top: 3px;
             opacity: 0;
             transform-origin: bottom left;
 
@@ -85,7 +85,7 @@
             width: 100vw;
             height: 150px;
             background-color: blueviolet;
-            margin-top: 300px;
+            margin-top: 100px;
             /* position: fixed; */
             bottom: 0px;
 
@@ -163,6 +163,10 @@
         img {
             z-index: 10;
             pointer-events: none;
+            transform-origin: bottom left;
+            zoom:50%
+            
+
         }
     </style>
 </head>
@@ -311,7 +315,7 @@
         props:['dizhi1'],
         template:
         `
-        <div class="dio2 dio"><img :src='dizhi1' alt="" srcset=""></div>
+        <div class="dio2 dio"><img class="dio2 dio" :src='dizhi1' alt="" srcset=""></div>
         `
 
 
@@ -372,14 +376,14 @@
                 console.log('hello')
 
                 // 200挪动一次
-            }, 200);
+            }, 1000);
 
 
         setTimeout(() => {
             clearInterval(start)
             // 1000后停止
-        }, 1000);
-    }, 1000);
+        }, 2000);
+    }, 3000);
 
     // ------------------------------------------------------------------------------
     //  ---机器人第一次说话
@@ -392,7 +396,7 @@
         // height:["0%","3%"],
         opacity: .9,
         duration: 500,
-        delay: anime.stagger(300), // 每个元素的延迟增加100毫秒。
+        delay: anime.stagger(1000), // 每个元素的延迟增加100毫秒。
         // mass stiffness damping velocity 质量刚度阻尼速度
         // easing: 'spring(3, 100, 50, 50)',
         easing: "easeOutElastic(1,1.0)",
@@ -422,7 +426,7 @@
         anime({
             targets: '.dio2',
             opacity: .9,
-            delay: anime.stagger(300), // 每个元素的延迟增加100毫秒。
+            delay: anime.stagger(1000), // 每个元素的延迟增加100毫秒。
             complete: function () {
 
                 console.log('hello com2')
@@ -446,14 +450,14 @@
                     console.log('hello')
 
                     // 200挪动一次
-                }, 300);
+                }, 1000);
 
 
             setTimeout(() => {
                 clearInterval(start)
                 // 1000后停止
-            }, 1800);
-        }, 900);
+            }, 2000);
+        }, 1000);
     }
 
 
